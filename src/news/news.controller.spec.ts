@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { NewsController } from './news.controller';
 import { NewsService } from './news.service';
-import { HttpService, HttpModule } from '@nestjs/axios';
+import { HttpModule } from '@nestjs/axios';
 
 describe('NewsController', () => {
   let controller: NewsController;
@@ -10,7 +10,7 @@ describe('NewsController', () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [HttpModule],
       controllers: [NewsController],
-      providers: [NewsService, HttpService],
+      providers: [NewsService],
     }).compile();
 
     controller = module.get<NewsController>(NewsController);
