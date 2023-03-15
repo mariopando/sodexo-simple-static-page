@@ -17,7 +17,7 @@ export class NewsService {
         .get<any[]>('https://inshorts.deta.dev/news?category=science')
         .pipe(
           catchError((error: AxiosError) => {
-            this.logger.error(error.response.data);
+            this.logger.error(error);
             throw 'An error happened!';
           }),
         ),
