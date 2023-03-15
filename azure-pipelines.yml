@@ -15,7 +15,7 @@ variables:
   webAppName: 'sodexo-simple-static-page'
 
   # Environment name
-  environmentName: 'development'
+  environmentName: 'production'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
