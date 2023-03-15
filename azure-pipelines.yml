@@ -12,7 +12,7 @@ variables:
   azureSubscription: 'ba06c4df-0d62-4cfd-b631-3c5adce6cabb'
 
   # Web app name
-  webAppName: 'sodexo-simple-static-pag'
+  webAppName: 'sodexo-simple-static-page'
 
   # Environment name
   environmentName: 'development'
