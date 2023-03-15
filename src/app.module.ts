@@ -3,10 +3,13 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CommentsModule } from './comments/comments.module';
 import { NewsModule } from './news/news.module';
+import { NewsService } from './news/news.service';
 
 // import { MongooseModule } from '@nestjs/mongoose';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { HttpModule } from '@nestjs/axios';
+
 
 @Module({
   imports: [
@@ -18,8 +21,9 @@ import { join } from 'path';
     }),
     CommentsModule,
     NewsModule,
+    HttpModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, NewsService],
 })
 export class AppModule {}
