@@ -51,6 +51,8 @@ stages:
         path: $(npm_config_cache)
       displayName: Cache npm
 
+    - script: npm ci
+
     - task: ArchiveFiles@2
       displayName: 'Archive files'
       inputs:
