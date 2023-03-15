@@ -79,19 +79,12 @@ stages:
       runOnce:
         deploy:
           steps:
-          - name: Download artifact from build job
-            uses: actions/download-artifact@v2
-            with:
-            name: node-app
-
-          - name: 'Deploy to Azure Web App'
-            id: deploy-to-webapp
-            uses: azure/webapps-deploy@v2
-            with:
-            app-name: 'sodexo-simple-static-page'
-            slot-name: 'Production'
-            publish-profile: $
-            package: nest.zip
-
-          - name: Delete zip file
-            run: rm nest.zip
+          - task: AzureWebApp@1
+            displayName: 'Azure Web App Deploy: '
+            inputs:
+              azureSubscription: $(azureSubscription)
+              appType: webAppLinux
+              appName: $(webAppName)
+              runtimeStack: 'NODE|16.16'
+              package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+              startUpCommand: 'npm run start:prod'
